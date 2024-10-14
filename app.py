@@ -1,4 +1,5 @@
 import streamlit as st
+import random
 
 # IPA Data from your original dictionary
 ipa_data = {
@@ -47,14 +48,20 @@ def filter_symbols(voicing, place, manner, oronasal, centrality):
 st.title("Sound grouping \nWith phonetic description")
 
 # Radio buttons for user input
-voicing = st.radio("1. Voicing", ['ALL', 'voiceless', 'voiced'], index=0)
-place = st.radio("2. Place", ['ALL', 'bilabial', 'labio-dental', 'labio-velar', 'dental', 'alveolar', 'palato-alveolar', 'palatal', 'velar', 'glottal'], index=0)
-manner = st.radio("3. Manner", ['ALL', 'stop', 'fricative', 'affricate', 'approximant'], index=0)
-oronasal = st.radio("4. Oro-nasal", ['ALL', '(oral)', 'nasal'], index=0)
-centrality = st.radio("5. Centrality", ['ALL', '(central)', 'lateral', '(not applicable)'], index=0)
+col1, col2 = st.columns(2)
+
+with col1:
+    voicing = st.radio("1. Voicing", ['ALL', 'voiceless', 'voiced'], index=0)
+    place = st.radio("2. Place", ['ALL', 'bilabial', 'labio-dental', 'labio-velar', 'dental', 'alveolar', 'palato-alveolar', 'palatal', 'velar', 'glottal'], index=0)
+    manner = st.radio("3. Manner", ['ALL', 'stop', 'fricative', 'affricate', 'approximant'], index=0)
+
+with col2:
+    oronasal = st.radio("4. Oro-nasal", ['ALL', '(oral)', 'nasal'], index=0)
+    centrality = st.radio("5. Centrality", ['ALL', '(central)', 'lateral', '(not applicable)'], index=0)
 
 # Submit button
 if st.button("Submit"):
     # Call the filter function and display the result
     result = filter_symbols(voicing, place, manner, oronasal, centrality)
-    st.write(result)
+    # Increase the font size of the output
+    st.markdown(f"<h2 style='font-size: 3em;'>{result}</h2>", unsafe_allow_html=True)
