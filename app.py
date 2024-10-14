@@ -47,11 +47,11 @@ def filter_symbols(voicing, place, manner, oronasal, centrality):
 st.title("Sound grouping \nWith phonetic description")
 
 # Radio buttons for user input
-voicing = st.radio("Voicing", ['ALL', 'voiceless', 'voiced'], index=0)
-place = st.radio("Place", ['ALL', 'bilabial', 'labio-dental', 'labio-velar', 'dental', 'alveolar', 'palato-alveolar', 'palatal', 'velar', 'glottal'], index=0)
-manner = st.radio("Manner", ['ALL', 'stop', 'fricative', 'affricate', 'approximant'], index=0)
-oronasal = st.radio("Oro-nasal", ['ALL', '(oral)', 'nasal'], index=0)
-centrality = st.radio("Centrality", ['ALL', '(central)', 'lateral', '(not applicable)'], index=0)
+voicing = st.radio("1. Voicing", ['ALL', 'voiceless', 'voiced'], index=0)
+place = st.radio("2. Place", ['ALL', 'bilabial', 'labio-dental', 'labio-velar', 'dental', 'alveolar', 'palato-alveolar', 'palatal', 'velar', 'glottal'], index=0)
+manner = st.radio("3. Manner", ['ALL', 'stop', 'fricative', 'affricate', 'approximant'], index=0)
+oronasal = st.radio("4. Oro-nasal", ['ALL', '(oral)', 'nasal'], index=0)
+centrality = st.radio("5. Centrality", ['ALL', '(central)', 'lateral', '(not applicable)'], index=0)
 
 # Submit button
 if st.button("Submit"):
