@@ -27,39 +27,21 @@ def filter_symbols(voicing, place, manner, oronasal, centrality):
 # Streamlit Interface
 st.title("Sound grouping \nWith phonetic description")
 
-# Horizontal alignment for Voicing options using st.columns()
+# Radio buttons for user input, but now only one selection is allowed per group
 st.markdown("### 1. Voicing")
-col1, col2, col3 = st.columns(3)
-with col1:
-    voicing = st.radio("Voicing", ['ALL'], key="voicing_all", label_visibility="collapsed")
-with col2:
-    voicing = st.radio("Voicing", ['voiceless'], key="voicing_voiceless", label_visibility="collapsed")
-with col3:
-    voicing = st.radio("Voicing", ['voiced'], key="voicing_voiced", label_visibility="collapsed")
+voicing = st.radio("Voicing", ['ALL', 'voiceless', 'voiced'], index=0, horizontal=True)
 
-# Horizontal alignment for Place options
 st.markdown("### 2. Place")
-place_columns = st.columns(5)  # Splitting into 5 columns for horizontal layout
-place_options = ['ALL', 'bilabial', 'labio-dental', 'labio-velar', 'dental', 'alveolar', 'palato-alveolar', 'palatal', 'velar', 'glottal']
-place = st.radio("Place", place_options, index=0, horizontal=True)
+place = st.radio("Place", ['ALL', 'bilabial', 'labio-dental', 'labio-velar', 'dental', 'alveolar', 'palato-alveolar', 'palatal', 'velar', 'glottal'], index=0, horizontal=True)
 
-# Horizontal alignment for Manner options
 st.markdown("### 3. Manner")
-manner_columns = st.columns(4)  # Splitting into 4 columns for horizontal layout
-manner_options = ['ALL', 'stop', 'fricative', 'affricate', 'approximant']
-manner = st.radio("Manner", manner_options, index=0, horizontal=True)
+manner = st.radio("Manner", ['ALL', 'stop', 'fricative', 'affricate', 'approximant'], index=0, horizontal=True)
 
-# Horizontal alignment for Oro-nasal options
 st.markdown("### 4. Oro-nasal")
-oronasal_columns = st.columns(3)
-oronasal_options = ['ALL', '(oral)', 'nasal']
-oronasal = st.radio("Oro-nasal", oronasal_options, index=0, horizontal=True)
+oronasal = st.radio("Oro-nasal", ['ALL', '(oral)', 'nasal'], index=0, horizontal=True)
 
-# Horizontal alignment for Centrality options
 st.markdown("### 5. Centrality")
-centrality_columns = st.columns(3)
-centrality_options = ['ALL', '(central)', 'lateral', '(not applicable)']
-centrality = st.radio("Centrality", centrality_options, index=0, horizontal=True)
+centrality = st.radio("Centrality", ['ALL', '(central)', 'lateral', '(not applicable)'], index=0, horizontal=True)
 
 # Submit button
 if st.button("Submit"):
