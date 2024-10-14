@@ -43,22 +43,18 @@ def filter_symbols(voicing, place, manner, oronasal, centrality):
     return f"/{', '.join(matching_symbols)}/" if matching_symbols else "No matching symbols."
 
 # Streamlit Interface
-st.title("Sound grouping \nWith phonetic description")
-
+st.title("Sound grouping")
+st.markdown("**With phonetic description**")
 # Radio buttons for user input, but now only one selection is allowed per group
-st.markdown("### 1. Voicing")
+
 voicing = st.radio("Voicing", ['ALL', 'voiceless', 'voiced'], index=0, horizontal=True)
 
-st.markdown("### 2. Place")
 place = st.radio("Place", ['ALL', 'bilabial', 'labio-dental', 'labio-velar', 'dental', 'alveolar', 'palato-alveolar', 'palatal', 'velar', 'glottal'], index=0, horizontal=True)
 
-st.markdown("### 3. Manner")
 manner = st.radio("Manner", ['ALL', 'stop', 'fricative', 'affricate', 'approximant'], index=0, horizontal=True)
 
-st.markdown("### 4. Oro-nasal")
 oronasal = st.radio("Oro-nasal", ['ALL', '(oral)', 'nasal'], index=0, horizontal=True)
 
-st.markdown("### 5. Centrality")
 centrality = st.radio("Centrality", ['ALL', '(central)', 'lateral', '(not applicable)'], index=0, horizontal=True)
 
 # Submit button
