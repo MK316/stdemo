@@ -44,7 +44,7 @@ def filter_symbols(voicing, place, manner, oronasal, centrality):
 # Streamlit Interface
 
 # Title
-st.title("Sound grouping \n- With phonetic description")
+st.title("Sound grouping \nWith phonetic description")
 
 # Radio buttons for user input
 voicing = st.radio("Voicing", ['ALL', 'voiceless', 'voiced'], index=0)
