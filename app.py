@@ -44,7 +44,7 @@ def filter_symbols(voicing, place, manner, oronasal, centrality):
 # Streamlit Interface
 
 # Title
-st.title("IPA Symbol Finder")
+st.title("Sound grouping with phonetic description")
 
 # Radio buttons for user input
 voicing = st.radio("Voicing", ['ALL', 'voiceless', 'voiced'], index=0)
